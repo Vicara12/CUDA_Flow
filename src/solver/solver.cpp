@@ -93,3 +93,12 @@ void Solver::initializeVelocityFields() {
     for (size_t j = 0; j < v_[0].size(); j++)
       v_[i][j] = velocityThroughCellBorder(mesh_[i + 1][j], mesh_[i + 1][j + 1]);
 }
+
+
+Mesh Solver::transposeMesh(const Mesh &mesh) {
+  Mesh new_mesh(mesh[0].size(), std::vector<CellType>(mesh.size()));
+  for (size_t i = 0; i < mesh.size(); i++)
+    for (size_t j = 0; j < mesh[0].size(); j++)
+      new_mesh[j][i] = mesh[i][j];
+  return new_mesh;
+}

@@ -34,4 +34,6 @@ public:
     float inlet_speed = 0,
     float belt_speed = 0
   );
+
+  static Mesh transposeMesh(const Mesh &mesh);
 };
